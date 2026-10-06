@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My jQuery Journal</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            color: #596044;
+            background: #f8c9d2;
+            background-image: radial-gradient(#fff 2px, transparent 2px);
+            background-size: 28px 28px;
+        }
+
+        .page {
+            width: 92%;
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fffaf5;
+            border: 10px solid #f2e4d5;
+            box-shadow: 0 15px 35px rgba(88,67,54,.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .side-decoration {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 70px;
+            background: #d65c76;
+            background-image: repeating-linear-gradient(
+                90deg,
+                transparent 0 13px,
+                rgba(255,255,255,.25) 13px 16px
+            );
+        }
+
+        .lace {
+            position: absolute;
+            left: 48px;
+            top: 0;
+            width: 45px;
+            height: 100%;
+            background-image: radial-gradient(
+                circle at center,
+                transparent 7px,
+                #78864a 8px,
+                #78864a 10px,
+                transparent 11px
+            );
+            background-size: 22px 22px;
+            opacity: .65;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            margin-left: 70px;
+            padding: 45px 55px;
+        }
+
+        .flower {
+            position: absolute;
+            font-size: 75px;
+            z-index: 5;
+        }
+
+        .flower-one {
+            top: 20px;
+            left: 20px;
+        }
+
+        .flower-two {
+            top: 360px;
+            right: 20px;
+            transform: rotate(25deg);
+        }
+
+        .star {
+            position: absolute;
+            color: #f2d84b;
+            font-size: 28px;
+        }
+
+        .star-one {
+            top: 90px;
+            right: 110px;
+        }
+
+        .star-two {
+            top: 330px;
+            left: 100px;
+        }
+
+        .star-three {
+            bottom: 120px;
+            right: 80px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 20px 45px;
+        }
+
+        .small-title {
+            display: inline-block;
+            background: #d95d77;
+            color: white;
+            padding: 8px 18px;
+            font-family: Georgia, serif;
+            font-size: 15px;
+            letter-spacing: 2px;
+            transform: rotate(-2deg);
+        }
+
+        .header h1 {
+            margin: 12px 0 0;
+            color: #667044;
+            font-family: Georgia, serif;
+            font-size: clamp(42px, 8vw, 78px);
+            font-weight: normal;
+            line-height: .95;
+            text-shadow: 3px 4px 0 #e8d9c8;
+        }
+
+        .header h1 span {
+            color: #d65c76;
+            font-style: italic;
+        }
+
+        .header p {
+            margin-top: 18px;
+            color: #8b7a6d;
+            font-size: 15px;
+            letter-spacing: 2px;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 15px 0 35px;
+            color: #d65c76;
+        }
+
+        .divider:before,
+        .divider:after {
+            content: "";
+            height: 2px;
+            background: #d7c7b8;
+            flex: 1;
+        }
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #697344;
+            font-family: Georgia, serif;
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        .section-title span {
+            color: #d65c76;
+        }
+
+
+        .profile-frame {
+            width: 90%;
+            margin: auto;
+            padding: 22px;
+            background: #d9e8a7;
+            border: 8px solid #7d8d4b;
+            border-radius: 45px;
+            box-shadow: 0 8px 0 #c3b39f;
+            transform: rotate(-1deg);
+        }
+
+        .profile-inner {
+            background: #eef8ff;
+            border: 4px solid #a7c4d1;
+            border-radius: 28px;
+            padding: 35px;
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: #f5dce1;
+            border: 7px solid white;
+            box-shadow: 0 0 0 4px #d65c76;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 65px;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-info h3 {
+            margin: 0;
+            color: #697344;
+            font-family: Georgia, serif;
+            font-size: 35px;
+        }
+
+        .job {
+            color: #a07070;
+            font-style: italic;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .skill {
+            background: #f5c6d0;
+            color: #70545a;
+            border: 2px solid #c97989;
+            padding: 7px 13px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        button {
+            border: 0;
+            background: #d65c76;
+            color: white;
+            padding: 12px 19px;
+            border-radius: 25px;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #a54259;
+            transition: .2s;
+        }
+
+        button:hover {
+            background: #bd4961;
+            transform: translateY(-2px);
+        }
+
+        .btn-green {
+            background: #78864a;
+            box-shadow: 0 4px 0 #596538;
+        }
+
+        .btn-green:hover {
+            background: #69783d;
+        }
+
+        .note {
+            width: 85%;
+            margin: 35px auto 0;
+            padding: 20px;
+            background: #fff1b8;
+            color: #776b42;
+            border: 2px solid #e2c96e;
+            box-shadow: 4px 5px 0 rgba(0,0,0,.1);
+        }
+
+        .note-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #a15d67;
+        }
+
+        /* FORM */
+
+        .form-paper {
+            width: 90%;
+            margin: auto;
+            background: #fdf8ef;
+            border: 3px solid #d7c5b5;
+            padding: 35px;
+            box-shadow: 7px 8px 0 #e4d4c3;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            color: #697344;
+            font-family: Georgia, serif;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            border: 0;
+            border-bottom: 2px solid #c7b8aa;
+            background: transparent;
+            padding: 12px 5px;
+            font-family: inherit;
+            color: #655c55;
+            outline: 0;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-bottom-color: #d65c76;
+        }
+
+        .error {
+            display: none;
+            margin-top: 7px;
+            color: #bd4961;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        #successMessage {
+            display: none;
+            margin-top: 25px;
+            padding: 18px;
+            text-align: center;
+            background: #dceca9;
+            border: 2px dashed #78864a;
+            color: #596538;
+            font-weight: bold;
+        }
+
+        /* GROCERY */
+
+        .store-intro {
+            width: 90%;
+            margin: auto;
+            padding: 22px;
+            background: #fff1b8;
+            border: 2px solid #e2c96e;
+            text-align: center;
+            box-shadow: 4px 5px 0 rgba(0,0,0,.1);
+        }
+
+        .store-intro h3 {
+            color: #697344;
+            font-family: Georgia, serif;
+        }
+
+        #storeArea {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .products {
+            width: 95%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            background: #fffdf8;
+            border: 3px solid #e6d8c8;
+            border-radius: 18px;
+            padding: 22px 16px;
+            text-align: center;
+            box-shadow: 5px 6px 0 #eadfd1;
+            transition: .2s;
+        }
+
+        .product:hover {
+            transform: translateY(-4px) rotate(-1deg);
+        }
+
+        .product .emoji {
+            font-size: 58px;
+        }
+
+        .product h3 {
+            color: #697344;
+            font-family: Georgia, serif;
+        }
+
+        .price {
+            color: #d65c76;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        .add-cart {
+            width: 100%;
+        }
+
+        .cart-box {
+            width: 95%;
+            margin: 35px auto 0;
+            padding: 25px;
+            background: #fdf8ef;
+            border: 3px solid #d7c5b5;
+            box-shadow: 7px 8px 0 #e4d4c3;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            color: #697344;
+            font-family: Georgia, serif;
+        }
+
+        .cart-badge {
+            background: #d65c76;
+            color: white;
+            min-width: 30px;
+            height: 30px;
+            padding: 5px 9px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 0;
+            border-bottom: 1px dashed #d7c7b8;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            color: #697344;
+            font-weight: bold;
+        }
+
+        .cart-item-price {
+            color: #8b7a6d;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .qty-btn {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            border-radius: 50%;
+            background: #78864a;
+            box-shadow: 0 3px 0 #596538;
+        }
+
+        .qty-number {
+            min-width: 25px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .remove-cart {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            border-radius: 50%;
+        }
+
+        .summary {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #d7c7b8;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 9px 0;
+        }
+
+        .discount-row strong {
+            color: #78864a;
+        }
+
+        .summary-row.total {
+            margin-top: 15px;
+            padding-top: 13px;
+            border-top: 2px dashed #d7c7b8;
+            font-size: 20px;
+            color: #d65c76;
+        }
+
+        .checkout-wrap {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+        }
+        .history-box {
+            width: 95%;
+            margin: 35px auto 0;
+            padding: 25px;
+            background: #eef8ff;
+            border: 3px solid #a7c4d1;
+            box-shadow: 5px 6px 0 #c6d8df;
+        }
+
+        .history-box h3 {
+            color: #697344;
+            font-family: Georgia, serif;
+        }
+
+        .history-item {
+            padding: 14px 0;
+            border-bottom: 1px dashed #b8cbd2;
+        }
+
+        .history-item strong {
+            color: #d65c76;
+        }
+
+        .history-date {
+            color: #8b7a6d;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .history-empty {
+            text-align: center;
+            color: #8b7a6d;
+            padding: 15px;
+        }
+
+
+        #buyerModal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(60,50,40,.55);
+            padding: 30px 15px;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            width: 90%;
+            max-width: 600px;
+            margin: 30px auto;
+            background: #fffaf5;
+            border: 8px solid #f2e4d5;
+            padding: 30px;
+            box-shadow: 0 12px 30px rgba(0,0,0,.25);
+            position: relative;
+        }
+
+        .modal-content h2 {
+            text-align: center;
+            color: #697344;
+            font-family: Georgia, serif;
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 15px;
+            top: 12px;
+            width: 35px;
+            height: 35px;
+            padding: 0;
+            border-radius: 50%;
+        }
+
+        .footer {
+            text-align: center;
+            color: #9b8178;
+            padding: 30px 0 10px;
+            font-family: Georgia, serif;
+            font-style: italic;
+        }
+
+        @media(max-width:700px) {
+
+            .content {
+                margin-left: 45px;
+                padding: 30px 20px;
+            }
+
+            .side-decoration {
+                width: 45px;
+            }
+
+            .lace {
+                display: none;
+            }
+
+            .profile-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-frame,
+            .form-paper,
+            .note {
+                width: 100%;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-item {
+                flex-wrap: wrap;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+    <div class="side-decoration"></div>
+    <div class="lace"></div>
+
+    <div class="flower flower-one">🌸</div>
+    <div class="flower flower-two">🌺</div>
+
+    <div class="star star-one">★</div>
+    <div class="star star-two">★</div>
+    <div class="star star-three">★</div>
+
+    <div class="content">
+
+        <header class="header">
+
+            <div class="small-title">
+                THIS IS
+            </div>
+
+            <h1>
+                My <span>jQuery</span><br>
+                Journal
+            </h1>
+
+            <p>
+                PRAKTIKUM PEMROGRAMAN WEB DASAR
+            </p>
+
+        </header>
+
+        <div class="divider">
+            🌷 ✦ 🌷
+        </div>
+
+        <section class="section">
+
+            <h2 class="section-title">
+                ✿ <span>01.</span> My Profile ✿
+            </h2>
+
+            <div id="profileCard" class="profile-frame">
+
+                <div class="profile-inner">
+
+                    <div class="avatar">
+                        👩🏻‍💻
+                    </div>
+
+                    <div class="profile-info">
+
+                        <h3 id="profileName">
+                            Syarifah Putri
+                        </h3>
+
+                        <p id="profileJob" class="job">
+                            Web Developer & jQuery Enthusiast
+                        </p>
+
+                        <div id="skillList" class="skills">
+                            <span class="skill">HTML5</span>
+                            <span class="skill">CSS3</span>
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">jQuery</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button id="btnGantiNama" type="button">
+                    ✎ Ganti Nama
+                </button>
+
+                <button id="btnTambahSkill" type="button">
+                    ✚ Tambah Skill
+                </button>
+
+                <button id="btnAnimasi" type="button">
+                    ✨ Efek Fade & Slide
+                </button>
+
+                <button id="btnReset" type="button" class="btn-green">
+                    ↻ Reset
+                </button>
+
+            </div>
+
+            <div class="note">
+
+                <div class="note-title">
+                    💌 CATATAN jQUERY
+                </div>
+
+                Bagian ini menggunakan manipulasi DOM,
+                event <b>click</b>, serta efek visual
+                <b>fade</b> dan <b>slide</b>.
+
+            </div>
+
+        </section>
+
+        <section class="section">
+
+            <h2 class="section-title">
+                💌 <span>02.</span> Leave a Message
+            </h2>
+
+            <form id="contactForm" class="form-paper">
+
+                <div class="form-group">
+
+                    <label for="nama">
+                        Nama Lengkap
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nama"
+                        placeholder="Tulis nama kamu..."
+                    >
+
+                    <div id="errNama" class="error">
+                        ⚠ Nama minimal 3 karakter.
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="text"
+                        id="email"
+                        placeholder="contoh@domain.com"
+                    >
+
+                    <div id="errEmail" class="error">
+                        ⚠ Email harus mengandung @ dan .
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="pesan">
+                        Pesan
+                    </label>
+
+                    <textarea
+                        id="pesan"
+                        placeholder="Tulis pesan minimal 10 karakter..."
+                    ></textarea>
+
+                    <div id="errPesan" class="error">
+                        ⚠ Pesan minimal 10 karakter.
+                    </div>
+
+                </div>
+
+
+                <div class="buttons">
+
+                    <button type="submit">
+                        💌 Kirim Pesan
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnResetForm"
+                        class="btn-green"
+                    >
+                        ↻ Reset
+                    </button>
+
+                </div>
+
+
+                <div id="successMessage">
+
+                    🌷 Terima kasih!
+
+                    <br>
+
+                    Pesan berhasil divalidasi dan dikirim. 🌷
+
+                </div>
+
+            </form>
+
+        </section>
+
+        <section class="section">
+
+            <h2 class="section-title">
+                🛒 <span>03.</span> Grocery Store
+            </h2>
+
+
+            <div class="store-intro">
+
+                <h3>
+                    🌷 Fresh Grocery Store 🌷
+                </h3>
+
+                <p>
+                    Pilih produk favoritmu dan masukkan
+                    ke keranjang belanja.
+                </p>
+
+                <button
+                    type="button"
+                    id="btnStore"
+                >
+                    🛒 Kunjungi Toko
+                </button>
+
+            </div>
+
+
+            <div id="storeArea">
+                <div
+                    id="products"
+                    class="products"
+                ></div>
+
+
+                <!-- CART -->
+
+                <div class="cart-box">
+
+                    <div class="cart-header">
+
+                        <h3>
+                            🛒 Keranjang Belanja
+                        </h3>
+
+                        <span
+                            id="cartBadge"
+                            class="cart-badge"
+                        >
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div id="cartList">
+
+                        <div id="emptyCart">
+                            Keranjang masih kosong 🌷
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary">
+
+                        <div class="summary-row">
+
+                            <span>
+                                Total Harga
+                            </span>
+
+                            <strong id="cartOriginal">
+                                Rp 0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row discount-row">
+
+                            <span>
+                                Diskon 10%
+                            </span>
+
+                            <strong id="cartDiscount">
+                                Rp 0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row total">
+
+                            <span>
+                                Total Bayar
+                            </span>
+
+                            <strong id="cartTotal">
+                                Rp 0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="checkout-wrap">
+
+                        <button
+                            type="button"
+                            id="btnCheckout"
+                            class="btn-green"
+                        >
+                            💳 Checkout
+                        </button>
+
+                        <button
+                            type="button"
+                            id="btnClearCart"
+                        >
+                            🗑 Kosongkan
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="history-box">
+
+                    <h3>
+                        📜 Riwayat Transaksi
+                    </h3>
+
+                    <div id="historyList"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer class="footer">
+
+            🌷 Made with jQuery & a little bit of love 🌷
+
+            <br>
+
+            Praktikum Pemrograman Web Dasar
+
+        </footer>
+
+    </div>
+
+</div>
+
+
+<!-- MODAL DATA PEMBELI -->
+
+<div id="buyerModal">
+
+    <div class="modal-content">
+
+        <button
+            type="button"
+            id="btnClose"
+            class="modal-close"
+        >
+            ×
+        </button>
+
+
+        <h2>
+            🧾 Data Pembeli
+        </h2>
+
+        <p style="text-align:center;color:#8b7a6d;">
+            Isi data pembeli sebelum checkout.
+        </p>
+
+
+        <div class="form-group">
+
+            <label for="buyerName">
+                Nama Lengkap
+            </label>
+
+            <input
+                type="text"
+                id="buyerName"
+                placeholder="Masukkan nama lengkap"
+            >
+
+            <div
+                id="errBuyerName"
+                class="error"
+            >
+                ⚠ Nama minimal 3 karakter.
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="buyerAddress">
+                Alamat
+            </label>
+
+            <textarea
+                id="buyerAddress"
+                placeholder="Masukkan alamat lengkap"
+            ></textarea>
+
+            <div
+                id="errBuyerAddress"
+                class="error"
+            >
+                ⚠ Alamat minimal 10 karakter.
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="buyerHp">
+                No. HP
+            </label>
+
+            <input
+                type="text"
+                id="buyerHp"
+                placeholder="08xxxxxxxxxx"
+            >
+
+            <div
+                id="errBuyerHp"
+                class="error"
+            >
+                ⚠ No. HP harus diawali 0 dan berupa angka.
+            </div>
+
+        </div>
+
+
+        <div class="buttons">
+
+            <button
+                type="button"
+                id="btnBuy"
+                class="btn-green"
+            >
+                ✓ Buat Pesanan
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+$(document).ready(function() {
+
+
+    /* =========================
+       PROFILE
+    ========================== */
+
+    var namaAwal = "Syarifah Putri";
+    var jobAwal = "Web Developer & jQuery Enthusiast";
+
+
+    $("#btnGantiNama").click(function() {
+
+        $("#profileName")
+            .text("ssasyaae")
+            .css("color", "#d65c76");
+
+    });
+
+
+    $("#btnTambahSkill").click(function() {
+
+        $("#skillList").append(
+            $("<span>")
+                .addClass("skill")
+                .text("Basket")
+        );
+
+    });
+
+
+    $("#btnAnimasi").click(function() {
+
+        $("#profileCard")
+            .fadeOut(300)
+            .fadeIn(600)
+            .slideUp(200)
+            .slideDown(300);
+
+    });
+
+
+    $("#btnReset").click(function() {
+
+        $("#profileName")
+            .text(namaAwal)
+            .css("color", "#697344");
+
+        $("#profileJob").text(jobAwal);
+
+        $("#skillList").html(
+            '<span class="skill">HTML5</span>' +
+            '<span class="skill">CSS3</span>' +
+            '<span class="skill">JavaScript</span>' +
+            '<span class="skill">jQuery</span>'
+        );
+
+        $("#profileCard").show();
+
+    });
+
+    $("#nama").on("input", function() {
+
+        var nama = $(this).val().trim();
+
+        if (nama.length < 3) {
+            $("#errNama").show();
+        } else {
+            $("#errNama").hide();
+        }
+
+    });
+
+
+    $("#email").on("input", function() {
+
+        var email = $(this).val().trim();
+
+        if (
+            email.indexOf("@") === -1 ||
+            email.indexOf(".") === -1
+        ) {
+            $("#errEmail").show();
+        } else {
+            $("#errEmail").hide();
+        }
+
+    });
+
+
+    $("#pesan").on("input", function() {
+
+        var pesan = $(this).val().trim();
+
+        if (pesan.length < 10) {
+            $("#errPesan").show();
+        } else {
+            $("#errPesan").hide();
+        }
+
+    });
+
+
+    $("#contactForm").submit(function(e) {
+
+        e.preventDefault();
+
+        var nama = $("#nama").val().trim();
+        var email = $("#email").val().trim();
+        var pesan = $("#pesan").val().trim();
+
+        var valid = true;
+
+
+        if (nama.length < 3) {
+            $("#errNama").show();
+            valid = false;
+        } else {
+            $("#errNama").hide();
+        }
+
+
+        if (
+            email.indexOf("@") === -1 ||
+            email.indexOf(".") === -1
+        ) {
+            $("#errEmail").show();
+            valid = false;
+        } else {
+            $("#errEmail").hide();
+        }
+
+
+        if (pesan.length < 10) {
+            $("#errPesan").show();
+            valid = false;
+        } else {
+            $("#errPesan").hide();
+        }
+
+
+        if (valid) {
+
+            $("#successMessage")
+                .fadeIn()
+                .delay(2000)
+                .fadeOut();
+
+        }
+
+    });
+
+
+    $("#btnResetForm").click(function() {
+
+        $("#contactForm").trigger("reset");
+
+        $("#errNama").hide();
+        $("#errEmail").hide();
+        $("#errPesan").hide();
+        $("#successMessage").hide();
+
+    });
+
+    const produk = [
+
+        {
+            id: 1,
+            nama: "Apel",
+            harga: 25000,
+            emoji: "🍎"
+        },
+
+        {
+            id: 2,
+            nama: "Pisang",
+            harga: 15000,
+            emoji: "🍌"
+        },
+
+        {
+            id: 3,
+            nama: "Jeruk",
+            harga: 20000,
+            emoji: "🍊"
+        },
+
+        {
+            id: 4,
+            nama: "Anggur",
+            harga: 35000,
+            emoji: "🍇"
+        },
+
+        {
+            id: 5,
+            nama: "Semangka",
+            harga: 30000,
+            emoji: "🍉"
+        },
+
+        {
+            id: 6,
+            nama: "Brokoli",
+            harga: 22000,
+            emoji: "🥦"
+        }
+
+    ];
+
+    let cart =
+        JSON.parse(localStorage.getItem("cart")) || [];
+
+
+    function formatRupiah(harga) {
+
+        return "Rp " +
+            Number(harga).toLocaleString("id-ID");
+
+    }
+
+
+    function simpanCart() {
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+
+    }
+
+    function tampilProduk() {
+
+        $("#products").html("");
+
+        $.each(produk, function(index, item) {
+
+            $("#products").append(`
+
+                <div class="product">
+
+                    <div class="emoji">
+                        ${item.emoji}
+                    </div>
+
+                    <h3>
+                        ${item.nama}
+                    </h3>
+
+                    <div class="price">
+                        ${formatRupiah(item.harga)}
+                    </div>
+
+                    <button
+                        type="button"
+                        class="add-cart"
+                        data-id="${item.id}"
+                    >
+                        🛒 Tambah ke Keranjang
+                    </button>
+
+                </div>
+
+            `);
+
+        });
+
+    }
+
+    function updateCartUI() {
+
+        $("#cartList").html("");
+
+        let totalHarga = cart.reduce(
+            (sum, item) =>
+                sum + (item.harga * item.qty),
+            0
+        );
+
+
+        let totalQty = cart.reduce(
+            (sum, item) =>
+                sum + item.qty,
+            0
+        );
+
+
+        $("#cartBadge").text(totalQty);
+
+
+        if (cart.length === 0) {
+
+            $("#cartList").html(`
+
+                <div id="emptyCart">
+                    Keranjang masih kosong 🌷
+                </div>
+
+            `);
+
+        } else {
+
+            $.each(cart, function(index, item) {
+
+                let subtotalItem =
+                    item.harga * item.qty;
+
+
+                $("#cartList").append(`
+
+                    <div class="cart-item">
+
+                        <div class="cart-item-info">
+
+                            <div class="cart-item-name">
+                                ${item.emoji}
+                                ${item.nama}
+                            </div>
+
+                            <div class="cart-item-price">
+
+                                ${formatRupiah(item.harga)}
+
+                                × ${item.qty}
+
+                                =
+
+                                <b>
+                                    ${formatRupiah(subtotalItem)}
+                                </b>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="qty-control">
+
+                            <button
+                                type="button"
+                                class="qty-btn btn-minus"
+                                data-index="${index}"
+                            >
+                                −
+                            </button>
+
+                            <span class="qty-number">
+                                ${item.qty}
+                            </span>
+
+                            <button
+                                type="button"
+                                class="qty-btn btn-plus"
+                                data-index="${index}"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="remove-cart"
+                            data-index="${index}"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+                `);
+
+            });
+
+        }
+
+        let diskon = 0;
+        let totalBayar = totalHarga;
+
+
+        if (totalHarga > 100000) {
+
+            diskon = totalHarga * 0.1;
+
+            totalBayar =
+                totalHarga - diskon;
+
+        }
+
+
+        $("#cartOriginal").html(
+            formatRupiah(totalHarga)
+        );
+
+        $("#cartDiscount").html(
+            formatRupiah(diskon)
+        );
+
+        $("#cartTotal").html(
+            formatRupiah(totalBayar)
+        );
+
+    }
+
+    $("#btnStore").click(function() {
+
+        $("#storeArea").slideDown(500);
+
+        tampilProduk();
+        updateCartUI();
+        tampilRiwayat();
+
+    });
+
+    $(document).on(
+        "click",
+        ".add-cart",
+        function() {
+
+            let id =
+                Number($(this).data("id"));
+
+
+            let item =
+                produk.find(
+                    product => product.id === id
+                );
+
+
+            if (!item) {
+                return;
+            }
+
+
+            let sudahAda =
+                cart.find(
+                    product => product.id === id
+                );
+
+
+            if (sudahAda) {
+
+                sudahAda.qty++;
+
+            } else {
+
+                cart.push({
+
+                    id: item.id,
+                    nama: item.nama,
+                    harga: item.harga,
+                    emoji: item.emoji,
+                    qty: 1
+
+                });
+
+            }
+
+
+            simpanCart();
+            updateCartUI();
+
+
+            let tombol = $(this);
+
+            tombol.text("✓ Ditambahkan");
+
+
+            setTimeout(function() {
+
+                tombol.text(
+                    "🛒 Tambah ke Keranjang"
+                );
+
+            }, 700);
+
+        }
+    );
+
+    $(document).on(
+        "click",
+        ".btn-plus",
+        function() {
+
+            let index =
+                Number($(this).data("index"));
+
+
+            if (cart[index]) {
+
+                cart[index].qty++;
+
+                simpanCart();
+                updateCartUI();
+
+            }
+
+        }
+    );
+
+    $(document).on(
+        "click",
+        ".btn-minus",
+        function() {
+
+            let index =
+                Number($(this).data("index"));
+
+
+            if (!cart[index]) {
+                return;
+            }
+
+
+            if (cart[index].qty > 1) {
+
+                cart[index].qty--;
+
+            } else {
+
+                cart.splice(index, 1);
+
+            }
+
+
+            simpanCart();
+            updateCartUI();
+
+        }
+    );
+
+    $(document).on(
+        "click",
+        ".remove-cart",
+        function() {
+
+            let index =
+                Number($(this).data("index"));
+
+
+            if (cart[index]) {
+
+                cart.splice(index, 1);
+
+                simpanCart();
+                updateCartUI();
+
+            }
+
+        }
+    );
+
+    $("#btnClearCart").click(function() {
+
+        if (cart.length === 0) {
+
+            alert(
+                "Keranjang sudah kosong."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            confirm(
+                "Yakin ingin mengosongkan keranjang?"
+            )
+        ) {
+
+            cart = [];
+
+            simpanCart();
+            updateCartUI();
+
+        }
+
+    });
+
+    function ambilRiwayat() {
+
+        try {
+
+            const data =
+                JSON.parse(
+                    localStorage.getItem("riwayat")
+                );
+
+            if (Array.isArray(data)) {
+                return data;
+            }
+
+            return [];
+
+        } catch (error) {
+
+            return [];
+
+        }
+
+    }
+
+    function simpanRiwayat(total, qty, nama) {
+
+        const riwayat =
+            ambilRiwayat();
+
+
+        riwayat.push({
+
+            tanggal:
+                new Date().toISOString(),
+
+            nama: nama,
+
+            total: Number(total),
+
+            qty: Number(qty)
+
+        });
+
+
+        localStorage.setItem(
+            "riwayat",
+            JSON.stringify(riwayat)
+        );
+
+    }
+
+    function tampilRiwayat() {
+
+        const riwayat =
+            ambilRiwayat();
+
+
+        $("#historyList").html("");
+
+
+        if (riwayat.length === 0) {
+
+            $("#historyList").html(`
+
+                <div class="history-empty">
+                    Belum ada transaksi 🌷
+                </div>
+
+            `);
+
+            return;
+
+        }
+
+        const dataTerbaru =
+            riwayat.slice().reverse();
+
+
+        $.each(
+            dataTerbaru,
+            function(index, item) {
+
+                let tanggal =
+                    new Date(
+                        item.tanggal
+                    ).toLocaleString("id-ID");
+
+
+                $("#historyList").append(`
+
+                    <div class="history-item">
+
+                        <strong>
+                            🛍️ Transaksi #${riwayat.length - index}
+                        </strong>
+
+                        <br>
+
+                        Pembeli:
+                        ${item.nama || "Pembeli"}
+
+                        <br>
+
+                        Total:
+                        <b>
+                            ${formatRupiah(item.total)}
+                        </b>
+
+                        <br>
+
+                        Jumlah item:
+                        ${item.qty}
+
+                        <div class="history-date">
+                            ${tanggal}
+                        </div>
+
+                    </div>
+
+                `);
+
+            }
+        );
+
+    }
+
+
+    $("#btnCheckout").click(function() {
+
+        if (cart.length === 0) {
+
+            alert(
+                "Keranjang masih kosong!"
+            );
+
+            return;
+
+        }
+
+
+        $("#buyerModal").fadeIn(300);
+
+    });
+
+
+    $("#btnClose").click(function() {
+
+        $("#buyerModal").fadeOut(300);
+
+    });
+
+
+    $("#btnBuy").click(function() {
+
+        let nama =
+            $("#buyerName")
+                .val()
+                .trim();
+
+
+        let alamat =
+            $("#buyerAddress")
+                .val()
+                .trim();
+
+
+        let hp =
+            $("#buyerHp")
+                .val()
+                .trim();
+
+
+        let valid = true;
+
+
+        $("#errBuyerName").hide();
+        $("#errBuyerAddress").hide();
+        $("#errBuyerHp").hide();
+
+
+        if (nama.length < 3) {
+
+            $("#errBuyerName").show();
+
+            valid = false;
+
+        }
+
+
+        if (alamat.length < 10) {
+
+            $("#errBuyerAddress").show();
+
+            valid = false;
+
+        }
+
+
+        if (
+            !/^0[0-9]{9,12}$/.test(hp)
+        ) {
+
+            $("#errBuyerHp").show();
+
+            valid = false;
+
+        }
+
+
+        if (!valid) {
+            return;
+        }
+
+
+        let totalHarga =
+            cart.reduce(
+                (sum, item) =>
+                    sum +
+                    (item.harga * item.qty),
+                0
+            );
+
+
+        let diskon = 0;
+
+
+        if (totalHarga > 100000) {
+
+            diskon =
+                totalHarga * 0.1;
+
+        }
+
+
+        let totalBayar =
+            totalHarga - diskon;
+
+
+        let totalQty =
+            cart.reduce(
+                (sum, item) =>
+                    sum + item.qty,
+                0
+            );
+
+
+        simpanRiwayat(
+            totalBayar,
+            totalQty,
+            nama
+        );
+
+        cart = [];
+
+        simpanCart();
+
+        updateCartUI();
+
+        tampilRiwayat();
+
+
+        $("#buyerModal").fadeOut(300);
+
+
+        $("#buyerName").val("");
+        $("#buyerAddress").val("");
+        $("#buyerHp").val("");
+
+
+        alert(
+            "Pesanan berhasil dibuat! 🌷\n\n" +
+            "Pembeli: " + nama + "\n" +
+            "Total: " + formatRupiah(totalBayar)
+        );
+
+    });
+
+
+    $("#buyerName").on("input", function() {
+
+        if ($(this).val().trim().length < 3) {
+
+            $("#errBuyerName").show();
+
+        } else {
+
+            $("#errBuyerName").hide();
+
+        }
+
+    });
+
+
+    $("#buyerAddress").on("input", function() {
+
+        if ($(this).val().trim().length < 10) {
+
+            $("#errBuyerAddress").show();
+
+        } else {
+
+            $("#errBuyerAddress").hide();
+
+        }
+
+    });
+
+
+    $("#buyerHp").on("input", function() {
+
+        if (
+            !/^0[0-9]{9,12}$/.test(
+                $(this).val().trim()
+            )
+        ) {
+
+            $("#errBuyerHp").show();
+
+        } else {
+
+            $("#errBuyerHp").hide();
+
+        }
+
+    });
+
+    tampilRiwayat();
+
+    updateCartUI();
+
+});
+
+</script>
+
+</body>
+</html>
