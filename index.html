@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Warung Ice Cream - Es Krim Segar Setiap Hari</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+        <div class="nav-container">
+
+            <div class="logo">
+                <i class="fas fa-ice-cream"></i>
+                <span>Warung Ice Cream</span>
+            </div>
+
+            <div class="nav-menu" id="navMenu">
+                <a class="nav-link active" data-filter="all">Semua</a>
+                <a class="nav-link" data-filter="es-krim">Es Krim</a>
+                <a class="nav-link" data-filter="sundae">Sundae</a>
+                <a class="nav-link" data-filter="minuman">Minuman</a>
+            </div>
+
+            <div class="cart-btn" id="cartBtn">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-text">Keranjang</span>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Selamat Datang di
+                <span>Warung Ice Cream</span> 🍦
+            </h1>
+
+            <p>
+                Pilih es krim favoritmu, tambahkan ke keranjang,
+                dan nikmati kesegarannya!
+            </p>
+
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchProduk"
+                    placeholder="Cari es krim favoritmu..."
+                >
+
+                <i class="fas fa-search"></i>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUK ================= -->
+    <section class="produk-section">
+
+        <div class="section-header">
+
+            <h2>
+                <i class="fas fa-list"></i>
+                Menu Kami
+            </h2>
+
+            <div class="filter-btns">
+
+                <button class="filter-btn active" data-cat="all">
+                    Semua
+                </button>
+
+                <button class="filter-btn" data-cat="es-krim">
+                    Es Krim
+                </button>
+
+                <button class="filter-btn" data-cat="sundae">
+                    Sundae
+                </button>
+
+                <button class="filter-btn" data-cat="minuman">
+                    Minuman
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Produk dirender oleh jQuery -->
+        <div class="produk-grid" id="produkGrid"></div>
+
+    </section>
+
+
+    <!-- ================= CART OVERLAY ================= -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+
+    <!-- ================= CART SIDEBAR ================= -->
+    <aside class="cart-sidebar" id="cartSidebar">
+
+        <div class="cart-header">
+
+            <h3>
+                <i class="fas fa-shopping-bag"></i>
+                Keranjang Belanja
+            </h3>
+
+            <button class="cart-close" id="cartClose">
+                <i class="fas fa-times"></i>
+            </button>
+
+        </div>
+
+
+        <div class="cart-items" id="cartItems">
+            <!-- Keranjang dirender oleh jQuery -->
+        </div>
+
+
+        <div class="cart-footer">
+
+            <div class="cart-summary">
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="cartOriginal">Rp 0</span>
+                </div>
+
+                <div class="summary-row discount-row">
+                    <span>Diskon</span>
+                    <span id="cartDiscount">Rp 0</span>
+                </div>
+
+                <div class="cart-total">
+                    <span>Total</span>
+                    <span class="total-price" id="cartTotal">
+                        Rp 0
+                    </span>
+                </div>
+
+            </div>
+
+            <button class="btn-checkout" id="btnCheckout">
+                <i class="fas fa-check-circle"></i>
+                Checkout Sekarang
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MODAL PEMBELI ================= -->
+    <div class="modal-overlay" id="buyerModal">
+
+        <div class="buyer-modal">
+
+            <div class="modal-header">
+
+                <div>
+                    <h3>
+                        <i class="fas fa-user"></i>
+                        Data Pembeli
+                    </h3>
+
+                    <p>
+                        Isi data sebelum melakukan checkout
+                    </p>
+                </div>
+
+                <button class="modal-close" id="buyerModalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+
+            </div>
+
+
+            <form id="buyerForm">
+
+                <div class="form-group">
+
+                    <label for="namaPembeli">
+                        Nama Lengkap
+                    </label>
+
+                    <input
+                        type="text"
+                        id="namaPembeli"
+                        placeholder="Masukkan nama lengkap"
+                    >
+
+                    <small class="error-message" id="namaError"></small>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="alamatPembeli">
+                        Alamat
+                    </label>
+
+                    <textarea
+                        id="alamatPembeli"
+                        rows="3"
+                        placeholder="Masukkan alamat lengkap"
+                    ></textarea>
+
+                    <small class="error-message" id="alamatError"></small>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="hpPembeli">
+                        Nomor HP
+                    </label>
+
+                    <input
+                        type="text"
+                        id="hpPembeli"
+                        placeholder="Contoh: 081234567890"
+                    >
+
+                    <small class="error-message" id="hpError"></small>
+
+                </div>
+
+
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-shopping-cart"></i>
+                    Konfirmasi Checkout
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= RIWAYAT TRANSAKSI ================= -->
+    <section class="riwayat-section">
+
+        <div class="riwayat-header">
+
+            <div>
+                <h2>
+                    <i class="fas fa-history"></i>
+                    Riwayat Transaksi
+                </h2>
+
+                <p>
+                    Data transaksi tersimpan di browser.
+                </p>
+            </div>
+
+            <button id="btnHapusRiwayat" class="btn-clear-history">
+                <i class="fas fa-trash"></i>
+                Hapus Riwayat
+            </button>
+
+        </div>
+
+
+        <div id="riwayatList" class="riwayat-list">
+            <!-- Riwayat ditampilkan dengan jQuery -->
+        </div>
+
+    </section>
+
+
+    <!-- ================= TOAST ================= -->
+    <div class="toast" id="toast">
+
+        <i class="fas fa-check-circle"></i>
+
+        <span id="toastMsg">
+            Produk ditambahkan!
+        </span>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <p>
+            <strong>Warung Ice Cream</strong> © 2026
+        </p>
+
+        <p>
+            Praktikum Pemrograman Web Dasar · Prodi Sistem Informasi
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
