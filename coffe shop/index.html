@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Senja Brew | Coffee & Stories</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- jQuery Validation -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="#beranda" class="logo">
+                <span class="logo-icon">☕</span>
+                <span>
+                    SENJA<span>BREW</span>
+                </span>
+            </a>
+
+            <ul class="nav-list">
+
+                <li>
+                    <a href="#beranda">Beranda</a>
+                </li>
+
+                <li class="dropdown">
+
+                    <button class="dropdown-btn" type="button">
+                        Menu <span>⌄</span>
+                    </button>
+
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="#menu">Kopi</a>
+                        </li>
+
+                        <li>
+                            <a href="#menu">Non-Kopi</a>
+                        </li>
+
+                        <li>
+                            <a href="#menu">Camilan</a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="#tentang">Tentang</a>
+                </li>
+
+                <li>
+                    <a href="#pesan">Pesan</a>
+                </li>
+
+                <li>
+                    <a href="#member">Member</a>
+                </li>
+
+            </ul>
+
+            <a href="#pesan" class="nav-order">
+                Pesan Sekarang
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <header id="beranda" class="hero">
+
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-container">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    <span></span>
+                    COFFEE • STORIES • MOMENTS
+                </div>
+
+                <h1>
+                    Temukan Rasa,<br>
+                    <em>Nikmati Suasana.</em>
+                </h1>
+
+                <p>
+                    Secangkir kopi pilihan, suasana hangat,
+                    dan cerita yang selalu punya tempat.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#menu" class="btn btn-primary">
+                        Lihat Menu
+                        <span>→</span>
+                    </a>
+
+                    <a href="#tentang" class="btn btn-outline">
+                        Tentang Kami
+                    </a>
+
+                </div>
+
+                <div class="hero-info">
+
+                    <div>
+                        <strong>100%</strong>
+                        <span>Biji Kopi Pilihan</span>
+                    </div>
+
+                    <div class="info-line"></div>
+
+                    <div>
+                        <strong>08.00 - 22.00</strong>
+                        <span>Setiap Hari</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="hero-scroll">
+            <span>SCROLL TO EXPLORE</span>
+            <div></div>
+        </div>
+
+    </header>
+
+
+    <!-- ================= MENU ================= -->
+
+    <section id="menu" class="menu-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    OUR MENU
+                </div>
+
+                <h2>
+                    Dibuat untuk menemani
+                    <em>setiap momen.</em>
+                </h2>
+
+                <p>
+                    Pilihan minuman dan camilan favorit
+                    yang dibuat dengan bahan berkualitas.
+                </p>
+
+            </div>
+
+
+            <!-- TABS -->
+
+            <div class="tabs">
+
+                <button
+                    class="tab active"
+                    type="button"
+                    data-target="#tab-kopi">
+
+                    <span>☕</span>
+                    Kopi
+
+                </button>
+
+                <button
+                    class="tab"
+                    type="button"
+                    data-target="#tab-nonkopi">
+
+                    <span>🥛</span>
+                    Non-Kopi
+
+                </button>
+
+                <button
+                    class="tab"
+                    type="button"
+                    data-target="#tab-camilan">
+
+                    <span>🥐</span>
+                    Camilan
+
+                </button>
+
+            </div>
+
+
+            <!-- ================= KOPI ================= -->
+
+            <div id="tab-kopi" class="tab-panel menu-grid">
+
+                <div class="menu-card">
+
+                    <div class="menu-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+                            alt="Caffe Latte">
+
+                        <span class="menu-tag">
+                            FAVORITE
+                        </span>
+
+                    </div>
+
+                    <div class="menu-content">
+
+                        <div class="menu-title">
+
+                            <h3>Caffe Latte</h3>
+
+                            <span class="price">
+                                Rp 28K
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Espresso lembut dengan steamed milk
+                            yang creamy dan smooth.
+                        </p>
+
+                        <button class="menu-add">
+                            Pesan Sekarang <span>→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-card">
+
+                    <div class="menu-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80"
+                            alt="Americano">
+
+                    </div>
+
+                    <div class="menu-content">
+
+                        <div class="menu-title">
+
+                            <h3>Americano</h3>
+
+                            <span class="price">
+                                Rp 22K
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Espresso dengan air panas untuk
+                            rasa kopi yang clean dan bold.
+                        </p>
+
+                        <button class="menu-add">
+                            Pesan Sekarang <span>→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-card">
+
+                    <div class="menu-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=800&q=80"
+                            alt="Cappuccino">
+
+                    </div>
+
+                    <div class="menu-content">
+
+                        <div class="menu-title">
+
+                            <h3>Cappuccino</h3>
+
+                            <span class="price">
+                                Rp 27K
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Espresso, steamed milk, dan foam
+                            lembut dalam satu cangkir.
+                        </p>
+
+                        <button class="menu-add">
+                            Pesan Sekarang <span>→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= NON KOPI ================= -->
+
+            <div
+                id="tab-nonkopi"
+                class="tab-panel menu-grid"
+                style="display:none;">
+
+                <div class="menu-card">
+
+                    <div class="menu-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?auto=format&fit=crop&w=800&q=80"
+                            alt="Matcha Latte">
+
+                    </div>
+
+                    <div class="menu-content">
+
+                        <div class="menu-title">
+
+                            <h3>Matcha Latte</h3>
+
+                            <span class="price">
+                                Rp 30K
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Matcha premium dengan susu segar
+                            yang creamy dan lembut.
+                        </p>
+
+                        <button class="menu-add">
+                            Pesan Sekarang <span>→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-card">
+
+                    <div class="menu-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80"
+                            alt="Chocolate">
+
+                    </div>
+
+                    <div class="menu-content">
+
+                        <div class="menu-title">
+
+                            <h3>Chocolate</h3>
+
+                            <span class="price">
+                                Rp 26K
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Cokelat creamy dengan rasa manis
+                            yang pas untuk menemani sore.
+                        </p>
+
+                        <button class="menu-add">
+                            Pesan Sekarang <span>→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-card">
+
+                    <div class="menu-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=800&q=80"
+                            alt="Strawberry Milk">
+
+                    </div>
+
+                    <div class="menu-content">
+
+                        <div class="menu-title">
+
+                            <h3>Strawberry Milk</h3>
+
+                            <span class="price">
+                                Rp 25K
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Susu segar dengan strawberry
+                            yang manis dan menyegarkan.
+                        </p>
+
+                        <button class="menu-add">
+                            Pesan Sekarang <span>→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= CAMILAN ================= -->
+
+            <div
+                id="tab-camilan"
+                class="tab-panel menu-grid"
+                style="display:none;">
+
+                <div class="menu-card">
+
+                    <div class="menu-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80"
+                            alt="Butter Croissant">
+
+                    </div>
+
+                    <div class="menu-content">
+
+                        <div class="menu-title">
+
+                            <h3>Butter Croissant</h3>
+
+                            <span class="price">
+                                Rp 20K
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Croissant renyah dengan aroma
+                            mentega yang gurih.
+                        </p>
+
+                        <button class="menu-add">
+                            Pesan Sekarang <span>→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-card">
+
+                    <div class="menu-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80"
+                            alt="French Fries">
+
+                    </div>
+
+                    <div class="menu-content">
+
+                        <div class="menu-title">
+
+                            <h3>French Fries</h3>
+
+                            <span class="price">
+                                Rp 18K
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Kentang goreng renyah dengan
+                            saus spesial Senja Brew.
+                        </p>
+
+                        <button class="menu-add">
+                            Pesan Sekarang <span>→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-card">
+
+                    <div class="menu-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80"
+                            alt="Chocolate Cake">
+
+                    </div>
+
+                    <div class="menu-content">
+
+                        <div class="menu-title">
+
+                            <h3>Chocolate Cake</h3>
+
+                            <span class="price">
+                                Rp 23K
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Cake cokelat lembut yang cocok
+                            dipadukan dengan kopi favorit.
+                        </p>
+
+                        <button class="menu-add">
+                            Pesan Sekarang <span>→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="tentang" class="about-section">
+
+        <div class="container about-grid">
+
+            <div class="about-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=80"
+                    alt="Suasana Senja Brew">
+
+                <div class="about-badge">
+
+                    <strong>5+</strong>
+
+                    <span>
+                        Tahun menemani
+                        cerita
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-content">
+
+                <div class="section-label">
+                    OUR STORY
+                </div>
+
+                <h2>
+                    Bukan hanya tentang kopi.
+                    <em>Tapi tentang rasa.</em>
+                </h2>
+
+                <p>
+                    Senja Brew hadir sebagai ruang kecil
+                    untuk menikmati kopi, bertemu orang-orang
+                    tersayang, atau sekadar menikmati waktu sendiri.
+                </p>
+
+                <p>
+                    Kami percaya bahwa secangkir kopi yang baik
+                    selalu punya cerita di baliknya.
+                </p>
+
+                <a href="#pesan" class="text-link">
+                    Temukan pengalamanmu
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ORDER ================= -->
+
+    <section id="pesan" class="form-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    ORDER NOW
+                </div>
+
+                <h2>
+                    Pesan kopi favoritmu.
+                </h2>
+
+                <p>
+                    Isi data pesanan dan kami akan
+                    menyiapkannya untukmu.
+                </p>
+
+            </div>
+
+
+            <form id="formPesan" class="form-box">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="nama">
+                            Nama Lengkap
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nama"
+                            name="nama"
+                            class="field"
+                            placeholder="Nama lengkap">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="field"
+                            placeholder="nama@email.com">
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="hp">
+                            Nomor HP
+                        </label>
+
+                        <input
+                            type="text"
+                            id="hp"
+                            name="hp"
+                            class="field"
+                            placeholder="08xxxxxxxxxx">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="pilihMenu">
+                            Pilih Menu
+                        </label>
+
+                        <select
+                            id="pilihMenu"
+                            name="menu"
+                            class="field">
+
+                            <option value="">
+                                Pilih menu favorit
+                            </option>
+
+                            <option>Caffe Latte</option>
+                            <option>Americano</option>
+                            <option>Cappuccino</option>
+                            <option>Matcha Latte</option>
+                            <option>Chocolate</option>
+                            <option>Strawberry Milk</option>
+                            <option>Butter Croissant</option>
+                            <option>French Fries</option>
+                            <option>Chocolate Cake</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="jumlah">
+                            Jumlah
+                        </label>
+
+                        <input
+                            type="number"
+                            id="jumlah"
+                            name="jumlah"
+                            class="field"
+                            min="1"
+                            placeholder="1">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="tanggal">
+                            Tanggal Pengambilan
+                        </label>
+
+                        <input
+                            type="date"
+                            id="tanggal"
+                            name="tanggal"
+                            class="field">
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="catatan">
+                        Catatan
+                    </label>
+
+                    <textarea
+                        id="catatan"
+                        name="catatan"
+                        class="field"
+                        rows="4"
+                        placeholder="Contoh: less sugar, no ice, dll."></textarea>
+
+                </div>
+
+
+                <button type="submit" class="btn btn-primary form-button">
+                    Kirim Pesanan
+                    <span>→</span>
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MEMBER ================= -->
+
+    <section id="member" class="member-section">
+
+        <div class="container member-box">
+
+            <div>
+
+                <div class="section-label">
+                    JOIN THE CLUB
+                </div>
+
+                <h2>
+                    Jadi bagian dari
+                    <em>Senja Brew.</em>
+                </h2>
+
+                <p>
+                    Dapatkan informasi menu baru,
+                    promo, dan pengalaman spesial
+                    khusus member.
+                </p>
+
+            </div>
+
+
+            <form id="formMember" class="member-form">
+
+                <div class="form-group">
+
+                    <input
+                        type="text"
+                        id="mNama"
+                        name="memberNama"
+                        class="field"
+                        placeholder="Nama lengkap">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <input
+                        type="email"
+                        id="mEmail"
+                        name="memberEmail"
+                        class="field"
+                        placeholder="Email">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <input
+                        type="text"
+                        id="mHp"
+                        name="memberHp"
+                        class="field"
+                        placeholder="Nomor HP">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <input
+                        type="password"
+                        id="mPassword"
+                        name="memberPassword"
+                        class="field"
+                        placeholder="Password">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <input
+                        type="password"
+                        id="mKonfirmasi"
+                        name="memberKonfirmasi"
+                        class="field"
+                        placeholder="Konfirmasi password">
+
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">
+                    Daftar Member →
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+            <div>
+
+                <a href="#beranda" class="logo">
+                    <span class="logo-icon">☕</span>
+                    SENJA<span>BREW</span>
+                </a>
+
+                <p>
+                    Temukan rasa, nikmati suasana.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#beranda">Beranda</a>
+                <a href="#menu">Menu</a>
+                <a href="#tentang">Tentang</a>
+                <a href="#pesan">Pesan</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Senja Brew.
+            Crafted with coffee & stories.
+
+        </div>
+
+    </footer>
+
+
+    <!-- TOAST -->
+
+    <div id="toast"></div>
+
+
+    <!-- BACK TO TOP -->
+
+    <button
+        id="backToTop"
+        type="button"
+        aria-label="Kembali ke atas">
+
+        ↑
+
+    </button>
+
+
+    <script src="script.js"></script>
+    <a href="../index.html" class="btn-back">← Kembali</a>
+</body>
+
+</html>
