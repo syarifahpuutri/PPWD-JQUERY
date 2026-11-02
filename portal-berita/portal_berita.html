@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <style>
+    .btn-back {
+        position: fixed;
+        bottom: 25px;
+        left: 25px;
+
+        padding: 10px 18px;
+
+        background: #d63b32;
+        color: white;
+
+        text-decoration: none;
+        border-radius: 10px;
+
+        font-size: 16px;
+        font-weight: 600;
+
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+        z-index: 999;
+    }
+
+    .btn-back:hover {
+        background: #b92f28;
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Borneo Sora | Kabar Kalimantan</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =====================================================
+           WARNA UTAMA
+        ===================================================== */
+
+        :root {
+            --navy: #172333;
+            --navy-light: #26384c;
+            --cream: #f6f3ed;
+            --paper: #ffffff;
+            --red: #c63d32;
+            --muted: #727b84;
+            --border: #e4e0d8;
+        }
+
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        body {
+            margin: 0;
+            background-color: var(--cream);
+            color: #202832;
+            font-family: "Inter", sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .serif {
+            font-family: "DM Serif Display", serif;
+        }
+
+
+        /* =====================================================
+           TOP BAR
+        ===================================================== */
+
+        .top-bar {
+            background-color: var(--navy);
+            color: #d9e0e6;
+            font-size: 13px;
+        }
+
+        .top-bar span {
+            opacity: 0.9;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+           Tetap memakai class Bootstrap:
+           navbar navbar-expand-lg navbar-dark bg-dark
+        ===================================================== */
+
+        .main-navbar {
+            background-color: #ffffff !important;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Logo */
+        .main-navbar .navbar-brand {
+            color: var(--navy) !important;
+            font-size: 27px;
+            letter-spacing: -1px;
+            font-weight: 800;
+        }
+
+        /* Kata Sora */
+        .main-navbar .navbar-brand span {
+            color: var(--red) !important;
+        }
+
+        /* Menu */
+        .main-navbar .navbar-nav .nav-link {
+            color: #39434d !important;
+            font-size: 14px;
+            font-weight: 600;
+            margin-left: 14px;
+        }
+
+        .main-navbar .navbar-nav .nav-link:hover,
+        .main-navbar .navbar-nav .nav-link.active {
+            color: var(--red) !important;
+        }
+
+        /* Tombol hamburger */
+        .main-navbar .navbar-toggler {
+            background-color: var(--navy);
+            border: none;
+        }
+
+
+        /* =====================================================
+           BREAKING NEWS
+        ===================================================== */
+
+        .breaking-bar {
+            background-color: var(--red);
+            color: white;
+        }
+
+        .breaking-label {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .breaking-text {
+            font-size: 13px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(23, 35, 51, 0.97),
+                    rgba(23, 35, 51, 0.84),
+                    rgba(72, 53, 43, 0.88)
+                );
+
+            color: white;
+            min-height: 420px;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-category {
+            color: #e7b9a9;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: "DM Serif Display", serif;
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.02;
+            letter-spacing: -1px;
+            margin-top: 15px;
+        }
+
+        .hero p {
+            max-width: 720px;
+            color: #d9e0e6;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .hero-button {
+            background-color: white;
+            color: var(--navy);
+            border: none;
+            border-radius: 4px;
+            padding: 12px 22px;
+            font-weight: 700;
+        }
+
+        .hero-button:hover {
+            background-color: #ece9e2;
+            color: var(--navy);
+        }
+
+
+        /* =====================================================
+           SECTION HEADING
+        ===================================================== */
+
+        .section-heading {
+            border-bottom: 2px solid var(--navy);
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .section-heading span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           BERITA UTAMA
+        ===================================================== */
+
+        .main-news {
+            background-color: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .main-news-image {
+            min-height: 310px;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.12),
+                    rgba(0, 0, 0, 0.4)
+                ),
+                url("https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80")
+                center / cover;
+        }
+
+        .main-news-content {
+            padding: 30px;
+        }
+
+        .category {
+            color: var(--red);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .main-news h2 {
+            font-family: "DM Serif Display", serif;
+            font-size: 35px;
+            line-height: 1.15;
+            margin-top: 8px;
+        }
+
+        .main-news p {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .read-more {
+            color: var(--navy);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .read-more:hover {
+            color: var(--red);
+        }
+
+
+        /* =====================================================
+           SIDEBAR
+        ===================================================== */
+
+        .sidebar-box {
+            background-color: white;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+        }
+
+        .sidebar-header {
+            background-color: var(--navy);
+            color: white;
+            padding: 15px 18px;
+        }
+
+        .sidebar-header h3 {
+            margin: 0;
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .popular-item {
+            padding: 17px 18px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .popular-item:last-child {
+            border-bottom: none;
+        }
+
+        .popular-number {
+            color: #b6bcc2;
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .popular-item h4 {
+            font-size: 14px;
+            line-height: 1.45;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .popular-item small {
+            color: var(--muted);
+        }
+
+
+        /* =====================================================
+           CARD BERITA
+        ===================================================== */
+
+        .news-card {
+            height: 100%;
+            background-color: white;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            overflow: hidden;
+            transition: 0.25s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(23, 35, 51, 0.10);
+        }
+
+        .news-photo {
+            height: 190px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .photo-1 {
+            background-image:
+                url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=700&q=80");
+        }
+
+        .photo-2 {
+            background-image:
+                url("https://images.unsplash.com/photo-1533130061792-64b345e4a833?auto=format&fit=crop&w=700&q=80");
+        }
+
+        .photo-3 {
+            background-image:
+                url("https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=700&q=80");
+        }
+
+        .photo-4 {
+            background-image:
+                url("https://images.unsplash.com/photo-1516939884455-1445c8652f83?auto=format&fit=crop&w=700&q=80");
+        }
+
+        .news-body {
+            padding: 20px;
+        }
+
+        .news-body h3 {
+            font-family: "DM Serif Display", serif;
+            font-size: 23px;
+            line-height: 1.2;
+            margin-top: 7px;
+        }
+
+        .news-body p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .news-meta {
+            color: #8a9198;
+            font-size: 11px;
+            margin-top: 15px;
+        }
+
+
+        /* =====================================================
+           BERITA SINGKAT
+        ===================================================== */
+
+        .small-news {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 17px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+
+        .small-news h4 {
+            font-size: 15px;
+            line-height: 1.45;
+            margin: 5px 0;
+            font-weight: 700;
+        }
+
+        .small-news small {
+            color: var(--muted);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background-color: var(--navy);
+            color: white;
+        }
+
+        .footer-brand {
+            font-family: "DM Serif Display", serif;
+            font-size: 28px;
+        }
+
+        footer p {
+            color: #aeb8c2;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .footer-links a {
+            color: #c5cdd4;
+            font-size: 13px;
+            margin-right: 18px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.12);
+            margin-top: 25px;
+            padding-top: 18px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 767px) {
+
+            .top-bar {
+                display: none;
+            }
+
+            .hero {
+                min-height: 390px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .main-news-image {
+                min-height: 230px;
+            }
+
+            .main-news-content {
+                padding: 22px;
+            }
+
+            .main-news h2 {
+                font-size: 29px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <a href="../index.html" class="btn-back">← Kembali</a>
+    <!-- =====================================================
+         TOP BAR
+    ===================================================== -->
+
+    <div class="top-bar py-2">
+
+        <div class="container">
+
+            <div class="d-flex justify-content-between">
+
+                <span>
+                    Selasa, 27 Oktober 2026
+                </span>
+
+                <span>
+                    Kalimantan Barat • Kalimantan • Indonesia
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         NAVBAR
+         Requirement tugas:
+         navbar navbar-expand-lg navbar-dark bg-dark
+    ===================================================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark main-navbar">
+
+        <div class="container">
+
+            <!-- LOGO -->
+            <a class="navbar-brand" href="#">
+                Borneo <span>Sora</span>
+            </a>
+
+
+            <!-- HAMBURGER -->
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <!-- MENU -->
+            <div class="collapse navbar-collapse" id="navbarMenu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            Beranda
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kalbar">
+                            Kalbar
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#daerah">
+                            Daerah
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ekonomi">
+                            Ekonomi
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#budaya">
+                            Budaya
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#olahraga">
+                            Olahraga
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         BREAKING NEWS
+    ===================================================== -->
+
+    <div class="breaking-bar py-2">
+
+        <div class="container">
+
+            <div class="d-flex align-items-center gap-3">
+
+                <span class="breaking-label">
+                    TERKINI
+                </span>
+
+                <span class="breaking-text">
+                    Penanganan karhutla masih menjadi perhatian
+                    di sejumlah wilayah Kalimantan.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         HERO
+         Requirement tugas:
+         col-12
+    ===================================================== -->
+
+    <header class="hero">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-12">
+
+                    <div class="hero-content">
+
+                        <div class="hero-category">
+                            Sorotan Kalimantan
+                        </div>
+
+                        <h1>
+                            Ketika Asap Kembali Menyelimuti
+                            Sejumlah Wilayah Borneo
+                        </h1>
+
+                        <p class="mt-4">
+                            Karhutla kembali menjadi perhatian. Di tengah
+                            upaya penanganan dan perubahan cuaca, masyarakat
+                            Kalimantan tetap menghadapi persoalan lingkungan
+                            yang berdampak pada kehidupan sehari-hari.
+                        </p>
+
+                        <a
+                            href="#kalbar"
+                            class="btn hero-button mt-3"
+                        >
+                            Baca Selengkapnya
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ===================================================== -->
+
+    <main class="container py-5" id="kalbar">
+
+
+        <!-- SECTION TITLE -->
+
+        <div class="section-heading d-flex justify-content-between align-items-end">
+
+            <h2>
+                Sorotan Hari Ini
+            </h2>
+
+            <span>
+                Kalimantan Barat & sekitarnya
+            </span>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- =================================================
+                 BERITA UTAMA
+                 Requirement:
+                 col-12 col-lg-8
+            ================================================== -->
+
+            <div class="col-12 col-lg-8">
+
+                <article class="main-news">
+
+                    <div class="main-news-image"></div>
+
+                    <div class="main-news-content">
+
+                        <div class="category">
+                            Lingkungan
+                        </div>
+
+                        <h2>
+                            Karhutla Jadi Perhatian,
+                            Warga Kalbar Diminta Tetap Waspada
+                        </h2>
+
+                        <p class="mt-3">
+                            Kebakaran hutan dan lahan menjadi salah satu isu
+                            lingkungan yang mendapat perhatian di Kalimantan.
+                            Selain ancaman terhadap ekosistem, kabut asap juga
+                            dapat memengaruhi aktivitas masyarakat.
+                        </p>
+
+                        <p>
+                            Penanganan karhutla membutuhkan kerja sama antara
+                            pemerintah, petugas di lapangan, masyarakat,
+                            serta berbagai pihak untuk mencegah api meluas.
+                        </p>
+
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+
+                            <small class="text-secondary">
+                                27 Oktober 2026 • 08.40 WIB
+                            </small>
+
+                            <a href="#" class="read-more">
+                                Baca selengkapnya →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- =================================================
+                 SIDEBAR TRENDING
+                 Requirement:
+                 col-12 col-lg-4
+            ================================================== -->
+
+            <div class="col-12 col-lg-4">
+
+                <div class="sidebar-box">
+
+                    <div class="sidebar-header">
+
+                        <h3>
+                            Paling Banyak Dibaca
+                        </h3>
+
+                    </div>
+
+
+                    <!-- TRENDING 1 -->
+
+                    <div class="popular-item">
+
+                        <div class="row g-3">
+
+                            <div class="col-auto">
+
+                                <div class="popular-number">
+                                    01
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+
+                                <h4>
+                                    Warga Pontianak Ramaikan Kawasan
+                                    Tepian Sungai Kapuas
+                                </h4>
+
+                                <small>
+                                    Pontianak • 2 jam lalu
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TRENDING 2 -->
+
+                    <div class="popular-item">
+
+                        <div class="row g-3">
+
+                            <div class="col-auto">
+
+                                <div class="popular-number">
+                                    02
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+
+                                <h4>
+                                    UMKM Kalbar Mulai Manfaatkan
+                                    Penjualan Digital
+                                </h4>
+
+                                <small>
+                                    Ekonomi • 3 jam lalu
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TRENDING 3 -->
+
+                    <div class="popular-item">
+
+                        <div class="row g-3">
+
+                            <div class="col-auto">
+
+                                <div class="popular-number">
+                                    03
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+
+                                <h4>
+                                    Festival Budaya Kembali Hadir
+                                    dengan Beragam Pertunjukan
+                                </h4>
+
+                                <small>
+                                    Budaya • 4 jam lalu
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TRENDING 4 -->
+
+                    <div class="popular-item">
+
+                        <div class="row g-3">
+
+                            <div class="col-auto">
+
+                                <div class="popular-number">
+                                    04
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+
+                                <h4>
+                                    Perkembangan Infrastruktur Jadi
+                                    Sorotan Masyarakat Daerah
+                                </h4>
+
+                                <small>
+                                    Daerah • 5 jam lalu
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             BERITA TERBARU
+             Requirement:
+             col-12 col-md-6 col-lg-3
+        ===================================================== -->
+
+        <section class="mt-5" id="daerah">
+
+            <div class="section-heading d-flex justify-content-between align-items-end">
+
+                <h2>
+                    Berita Terbaru
+                </h2>
+
+                <span>
+                    Dari berbagai sudut Kalimantan
+                </span>
+
+            </div>
+
+
+            <div class="row g-4">
+
+
+                <!-- BERITA 1 -->
+
+                <div class="col-12 col-md-6 col-lg-3">
+
+                    <article class="news-card">
+
+                        <div class="news-photo photo-1"></div>
+
+                        <div class="news-body">
+
+                            <div class="category">
+                                Daerah
+                            </div>
+
+                            <h3>
+                                Menjaga Hutan dan Ruang Hijau
+                                di Tengah Perubahan Iklim
+                            </h3>
+
+                            <p>
+                                Upaya menjaga kawasan hijau menjadi bagian
+                                penting dalam menghadapi perubahan lingkungan
+                                di Kalimantan.
+                            </p>
+
+                            <div class="news-meta">
+                                27 Oktober 2026 • 07.45 WIB
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- BERITA 2 -->
+
+                <div class="col-12 col-md-6 col-lg-3">
+
+                    <article class="news-card">
+
+                        <div class="news-photo photo-2"></div>
+
+                        <div class="news-body">
+
+                            <div class="category">
+                                Ekonomi
+                            </div>
+
+                            <h3>
+                                UMKM Lokal Terus Beradaptasi
+                                dengan Ekonomi Digital
+                            </h3>
+
+                            <p>
+                                Pelaku usaha lokal mulai memanfaatkan
+                                platform digital untuk memperluas pasar
+                                dan menjangkau pelanggan baru.
+                            </p>
+
+                            <div class="news-meta">
+                                27 Oktober 2026 • 07.10 WIB
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- BERITA 3 -->
+
+                <div class="col-12 col-md-6 col-lg-3">
+
+                    <article class="news-card">
+
+                        <div class="news-photo photo-3"></div>
+
+                        <div class="news-body">
+
+                            <div class="category">
+                                Pendidikan
+                            </div>
+
+                            <h3>
+                                Kampus dan Komunitas Dorong
+                                Budaya Riset Generasi Muda
+                            </h3>
+
+                            <p>
+                                Berbagai kegiatan akademik dan komunitas
+                                mendorong mahasiswa untuk semakin aktif
+                                melakukan riset dan inovasi.
+                            </p>
+
+                            <div class="news-meta">
+                                26 Oktober 2026 • 19.20 WIB
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- BERITA 4 -->
+
+                <div class="col-12 col-md-6 col-lg-3">
+
+                    <article class="news-card">
+
+                        <div class="news-photo photo-4"></div>
+
+                        <div class="news-body">
+
+                            <div class="category">
+                                Budaya
+                            </div>
+
+                            <h3>
+                                Tradisi Lokal Tetap Hidup
+                                di Tengah Generasi Digital
+                            </h3>
+
+                            <p>
+                                Generasi muda ikut mengambil peran dalam
+                                mengenalkan kembali budaya dan tradisi
+                                Kalimantan melalui berbagai cara.
+                            </p>
+
+                            <div class="news-meta">
+                                26 Oktober 2026 • 18.05 WIB
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             KABAR LAINNYA
+        ===================================================== -->
+
+        <section class="mt-5" id="ekonomi">
+
+            <div class="section-heading">
+
+                <h2>
+                    Kabar Lainnya
+                </h2>
+
+            </div>
+
+
+            <div class="row">
+
+
+                <div class="col-12 col-lg-8">
+
+                    <!-- KABAR 1 -->
+
+                    <div class="small-news">
+
+                        <div class="category">
+                            Kalimantan Barat
+                        </div>
+
+                        <h4>
+                            Aktivitas masyarakat di sejumlah kawasan
+                            Pontianak kembali ramai menjelang akhir pekan.
+                        </h4>
+
+                        <small>
+                            Pontianak • 16.30 WIB
+                        </small>
+
+                    </div>
+
+
+                    <!-- KABAR 2 -->
+
+                    <div class="small-news">
+
+                        <div class="category">
+                            Olahraga
+                        </div>
+
+                        <h4>
+                            Talenta muda Kalimantan mulai mendapat perhatian
+                            melalui berbagai kompetisi regional.
+                        </h4>
+
+                        <small>
+                            Olahraga • 15.10 WIB
+                        </small>
+
+                    </div>
+
+
+                    <!-- KABAR 3 -->
+
+                    <div class="small-news">
+
+                        <div class="category">
+                            Teknologi
+                        </div>
+
+                        <h4>
+                            Komunitas digital di Kalbar dorong mahasiswa
+                            mengembangkan produk teknologi lokal.
+                        </h4>
+
+                        <small>
+                            Teknologi • 13.45 WIB
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ABOUT -->
+
+                <div class="col-12 col-lg-4 mt-3 mt-lg-0" id="budaya">
+
+                    <div class="sidebar-box p-4">
+
+                        <div class="category mb-2">
+                            Tentang Borneo Sora
+                        </div>
+
+                        <h3 class="serif">
+                            Cerita Kalimantan,
+                            dari dekat.
+                        </h3>
+
+                        <p class="text-secondary small mt-3">
+                            Borneo Sora adalah konsep portal berita digital
+                            yang menyajikan kabar seputar Kalimantan,
+                            dengan perhatian khusus pada Kalimantan Barat.
+                        </p>
+
+                        <a href="#" class="read-more">
+                            Tentang kami →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         Requirement:
+         bg-dark text-white py-4
+    ===================================================== -->
+
+    <footer class="bg-dark text-white py-4">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-12 col-md-6">
+
+                    <div class="footer-brand">
+                        Borneo Sora
+                    </div>
+
+                    <p class="mt-2 mb-0">
+                        Membaca Kalimantan dari berbagai sisi —
+                        daerah, masyarakat, ekonomi, budaya,
+                        lingkungan, dan kehidupan sehari-hari.
+                    </p>
+
+                </div>
+
+
+                <div class="col-12 col-md-6 mt-4 mt-md-0 text-md-end">
+
+                    <div class="footer-links">
+
+                        <a href="#">
+                            Beranda
+                        </a>
+
+                        <a href="#">
+                            Kalbar
+                        </a>
+
+                        <a href="#">
+                            Daerah
+                        </a>
+
+                        <a href="#">
+                            Kontak
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="copyright">
+
+                <div class="row">
+
+                    <div class="col-12 col-md-6">
+
+                        <p class="mb-0">
+                            © 2026 Borneo Sora
+                        </p>
+
+                    </div>
+
+                    <div class="col-12 col-md-6 text-md-end">
+
+                        <p class="mb-0">
+                            Informasi lokal, cerita yang dekat.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         BOOTSTRAP JAVASCRIPT
+    ===================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+</body>
+</html>
