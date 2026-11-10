@@ -1,136 +1,834 @@
-/* ===== 1. Warna =====
-   Variabel CSS: ubah warna cukup di sini saja. */
 
-:root {
-  --latar: #eef3f1;
-  --kartu: #ffffff;
-  --teks: #1c2b27;
-  --teks-pudar: #5f726c;
-  --aksen: #0f766e;
-}
-
-/* Saat body diberi class "gelap" oleh JavaScript, warna berganti */
-
-body.gelap {
-  --latar: #121a18;
-  --kartu: #1b2623;
-  --teks: #e6efec;
-  --teks-pudar: #94a8a1;
-  --aksen: #5fd1c4;
-}
-
-/* ===== 2. Dasar halaman ===== */
+/* ==============================
+   RESET DAN PENGATURAN DASAR
+============================== */
 
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background: var(--latar);
-  color: var(--teks);
+    font-family: Arial, Helvetica, sans-serif;
+    color: #31552b;
+
+    /* Background untuk SELURUH halaman */
+    background:
+        linear-gradient(
+            rgba(255, 248, 250, 0.28),
+            rgba(255, 248, 250, 0.28)
+        ),
+        url("background.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* ===== 3. Bagian atas ===== */
+/* ==============================
+   HEADER
+============================== */
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 24px;
+    width: 100%;
+    min-height: 90px;
+    padding: 20px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255, 248, 250, 0.72);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(220, 100, 150, 0.15);
 }
 
 .logo {
-  margin: 0;
-  color: var(--aksen);
+    color: #d52b7d;
+    font-size: 26px;
+    font-weight: bold;
 }
 
 #tombol-tema {
-  padding: 8px 16px;
-  border: 2px solid var(--aksen);
-  border-radius: 20px;
-  background: transparent;
-  color: var(--aksen);
-  cursor: pointer;
+    padding: 12px 25px;
+
+    border: 2px solid #ec2990;
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.8);
+    color: #d52b7d;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
-/* ===== 4. Isi halaman ===== */
+#tombol-tema:hover {
+    background: #ec2990;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ==============================
+   BAGIAN UTAMA
+============================== */
 
 .isi {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 24px 60px;
+    width: 100%;
+    min-height: 100vh;
+
+    /* Jangan menggunakan background putih di sini */
+    background: transparent;
 }
+
+/* ==============================
+   BAGIAN PERKENALAN / HERO
+============================== */
 
 .perkenalan {
-  padding: 50px 0 20px;
+    min-height: 680px;
+    padding: 75px 20px 100px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    position: relative;
+
+    background: transparent;
 }
+
+/* Teks pembuka */
+
+.teks-pembuka {
+    margin-bottom: 30px;
+
+    color: #31552b;
+    font-size: 14px;
+    font-weight: bold;
+
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+/* Judul utama */
 
 .perkenalan h1 {
-  font-size: 2.6rem;
-  margin: 0 0 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    line-height: 0.95;
+    margin-bottom: 25px;
 }
 
-.perkenalan p {
-  color: var(--teks-pudar);
-  font-size: 1.1rem;
-  margin: 0;
+/* Tulisan "the" */
+
+.the {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 48px;
+    color: white;
+    font-style: italic;
+    font-weight: normal;
+    text-shadow: 0 4px 8px rgba(80, 50, 70, 0.25);
+    margin-bottom: -5px;
 }
 
+.nama {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 90px;
+    font-weight: bold;
+    color: #ed2189;
 
-/* ===== 5. Pencarian ===== */
+    text-shadow:
+        3px 4px 0 white,
+        0 8px 15px rgba(100, 40, 70, 0.2);
+
+    letter-spacing: -3px;
+}
+
+.nama-kedua {
+    color: #c51d70;
+    margin-top: 5px;
+}
+
+/* Label kreativitas */
+
+.label-kreativitas {
+    display: inline-block;
+
+    margin: 20px 0;
+    padding: 10px 25px;
+
+    background: rgba(255, 255, 255, 0.88);
+    color: #d52b7d;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 4px;
+}
+
+/* Deskripsi */
+
+.deskripsi {
+    max-width: 650px;
+
+    margin: 10px auto 30px;
+
+    color: #31552b;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+/* Tombol lihat proyek */
+
+.tombol-proyek {
+    display: inline-block;
+
+    padding: 18px 40px;
+
+    border: 3px solid white;
+    border-radius: 50px;
+
+    background: #ec2990;
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    box-shadow: 0 8px 20px rgba(190, 50, 120, 0.2);
+
+    transition: 0.3s ease;
+}
+
+.tombol-proyek:hover {
+    background: #c51d70;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(190, 50, 120, 0.3);
+}
+
+/* ==============================
+   BAGIAN PROYEK
+============================== */
+
+.bagian-proyek {
+    width: 100%;
+    padding: 80px 7% 100px;
+
+    /* Transparan agar background tetap terlihat */
+    background: transparent;
+}
+
+/* Judul proyek */
+
+.judul-proyek {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.subjudul {
+    margin-bottom: 15px;
+
+    color: #d52b7d;
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 5px;
+}
+
+.judul-proyek h2 {
+    margin-bottom: 15px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(40px, 6vw, 65px);
+
+    color: #c51d70;
+    text-shadow: 2px 3px 0 white;
+}
+
+.judul-proyek > p:last-child {
+    color: #31552b;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* ==============================
+   KOLOM PENCARIAN
+============================== */
 
 #cari {
-  width: 100%;
-  padding: 12px 16px;
-  margin: 8px 0 20px;
-  border: 1px solid var(--teks-pudar);
-  border-radius: 10px;
-  font-size: 1rem;
-  background: var(--kartu);
-  color: var(--teks);
+    display: block;
+
+    width: min(100%, 750px);
+    margin: 0 auto 40px;
+
+    padding: 17px 25px;
+
+    border: 1px solid #efb7d0;
+    border-radius: 40px;
+
+    background: rgba(255, 255, 255, 0.85);
+    color: #31552b;
+
+    font-size: 17px;
+
+    outline: none;
+    transition: 0.3s ease;
 }
 
+#cari:focus {
+    border-color: #ec2990;
+    box-shadow: 0 0 0 4px rgba(236, 41, 144, 0.12);
+}
 
-/* ===== 6. Kartu proyek ===== */
+#cari::placeholder {
+    color: #888;
+}
+
+/* ==============================
+   GRID KARTU PROYEK
+============================== */
 
 .daftar-proyek {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px;
 }
 
+/* Kartu proyek */
+
 .kartu {
-  display: block;
-  padding: 24px;
-  background: var(--kartu);
-  border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  color: inherit;
-  text-decoration: none;
-  transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+
+    min-height: 250px;
+    padding: 30px;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+
+    /* Kartu tidak lagi putih solid */
+    background: rgba(255, 250, 252, 0.76);
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 10px 30px rgba(130, 70, 100, 0.12);
+
+    color: #31552b;
+    text-decoration: none;
+
+    transition: 0.3s ease;
 }
 
 .kartu:hover {
-  transform: translateY(-4px);
+    transform: translateY(-8px);
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border-color: #ef9bc5;
+
+    box-shadow: 0 15px 35px rgba(190, 50, 120, 0.2);
 }
+
+/* Nomor proyek */
+
+.nomor-proyek {
+    margin-bottom: 20px;
+
+    color: #d52b7d;
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+/* Judul kartu */
 
 .kartu h3 {
-  margin: 0 0 6px;
-  color: var(--aksen);
+    margin-bottom: 15px;
+
+    color: #d52b7d;
+    font-size: 22px;
+    line-height: 1.4;
 }
+
+/* Deskripsi kartu */
 
 .kartu p {
-  margin: 0;
-  color: var(--teks-pudar);
+    margin-bottom: 25px;
+
+    color: #587747;
+    font-size: 16px;
+    line-height: 1.7;
 }
 
+/* Teks lihat proyek */
 
-/* Pesan "tidak ditemukan" disembunyikan dulu */
+.lihat-proyek {
+    margin-top: auto;
+
+    color: #c51d70;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ==============================
+   PESAN PROYEK TIDAK DITEMUKAN
+============================== */
 
 .pesan-kosong {
-  display: none;
-  color: var(--teks-pudar);
+    display: none;
+
+    margin-top: 30px;
+
+    color: #c51d70;
+    font-size: 17px;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+/* ==============================
+   MODE GELAP
+============================== */
+
+body.mode-gelap {
+    color: #f8e8f0;
+
+    background:
+        linear-gradient(
+            rgba(35, 20, 35, 0.65),
+            rgba(35, 20, 35, 0.65)
+        ),
+        url("images/background-floral.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body.mode-gelap .header {
+    background: rgba(35, 20, 35, 0.8);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.mode-gelap .logo {
+    color: #ff77b7;
+}
+
+body.mode-gelap .perkenalan,
+body.mode-gelap .bagian-proyek,
+body.mode-gelap .isi {
+    background: transparent;
+}
+
+body.mode-gelap .teks-pembuka,
+body.mode-gelap .deskripsi,
+body.mode-gelap .judul-proyek > p:last-child {
+    color: #f8e8f0;
+}
+
+body.mode-gelap .kartu {
+    background: rgba(45, 30, 45, 0.8);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+body.mode-gelap .kartu p {
+    color: #e8d5e0;
+}
+
+body.mode-gelap .kartu:hover {
+    background: rgba(65, 40, 60, 0.95);
+}
+
+body.mode-gelap #cari {
+    background: rgba(45, 30, 45, 0.9);
+    color: white;
+    border-color: #a84c7d;
+}
+
+body.mode-gelap #cari::placeholder {
+    color: #d5b6c8;
+}
+
+/* ==============================
+   RESPONSIVE TABLET
+============================== */
+
+@media (max-width: 1100px) {
+    .daftar-proyek {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .perkenalan {
+        min-height: 600px;
+    }
+
+    .nama {
+        font-size: clamp(65px, 10vw, 110px);
+    }
+}
+
+/* ==============================
+   RESPONSIVE HP
+============================== */
+
+@media (max-width: 600px) {
+    .header {
+        min-height: 75px;
+        padding: 15px 5%;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    #tombol-tema {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .perkenalan {
+        min-height: 600px;
+        padding: 60px 15px 80px;
+    }
+
+    .teks-pembuka {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .the {
+        font-size: 45px;
+    }
+
+    .nama {
+        font-size: clamp(50px, 13vw, 75px);
+        letter-spacing: -2px;
+    }
+
+    .label-kreativitas {
+        padding: 9px 15px;
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .deskripsi {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .tombol-proyek {
+        padding: 15px 28px;
+        font-size: 15px;
+    }
+
+    .bagian-proyek {
+        padding: 60px 5% 80px;
+    }
+
+    .judul-proyek h2 {
+        font-size: 40px;
+    }
+
+    .subjudul {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .judul-proyek > p:last-child {
+        font-size: 14px;
+    }
+
+    .daftar-proyek {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .kartu {
+        min-height: 220px;
+        padding: 25px;
+    }
+
+    .kartu h3 {
+        font-size: 20px;
+    }
+
+    .kartu p {
+        font-size: 15px;
+    }
+}
+/* ===== MODE GELAP ===== */
+
+body.gelap {
+    background-color: #1b1420 !important;
+    color: #f8e8f1 !important;
+}
+
+/* Header */
+body.gelap .header {
+    background: rgba(35, 25, 40, 0.95) !important;
+    color: #f8e8f1 !important;
+}
+
+/* Bagian perkenalan */
+body.gelap .perkenalan {
+    background-color: transparent !important;
+}
+
+/* Bagian proyek */
+body.gelap .bagian-proyek {
+    background-color: transparent !important;
+}
+
+/* Kartu proyek */
+body.gelap .kartu {
+    background: rgba(45, 34, 50, 0.95) !important;
+    color: #f8e8f1 !important;
+    border-color: rgba(255, 182, 210, 0.3) !important;
+}
+
+/* Judul dan teks */
+body.gelap .kartu h3,
+body.gelap .judul-proyek h2 {
+    color: #ff75b7 !important;
+}
+
+body.gelap .kartu p,
+body.gelap .judul-proyek p {
+    color: #e7d9e8 !important;
+}
+
+/* Kolom pencarian */
+body.gelap #cari {
+    background: #302536 !important;
+    color: #ffffff !important;
+    border-color: #ff75b7 !important;
+}
+
+body.gelap #cari::placeholder {
+    color: #d9c5d5 !important;
+}
+
+/* Tombol mode */
+body.gelap #tombol-tema {
+    background: #302536 !important;
+    color: #ff75b7 !important;
+    border-color: #ff75b7 !important;
+}
+
+/* Link proyek */
+body.gelap .lihat-proyek {
+    color: #ff9ac9 !important;
+}
+/* ===== MODE GELAP: HANYA CARD YANG BERUBAH ===== */
+
+/* Background halaman tetap menggunakan background terang */
+body.gelap {
+    background-color: transparent !important;
+    color: #315c28;
+}
+
+/* Tulisan di luar card tetap menggunakan warna mode terang */
+body.gelap .teks-pembuka {
+    color: #315c28 !important;
+}
+
+body.gelap .the {
+    color: #ffffff !important;
+}
+
+body.gelap .nama {
+    color: #ec238b !important;
+}
+
+body.gelap .label-kreativitas {
+    color: #ec238b !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.gelap .deskripsi {
+    color: #315c28 !important;
+}
+
+/* Bagian judul proyek tetap terang */
+body.gelap .judul-proyek .subjudul {
+    color: #315c28 !important;
+}
+
+body.gelap .judul-proyek h2 {
+    color: #ec238b !important;
+}
+
+body.gelap .judul-proyek > p:not(.subjudul) {
+    color: #315c28 !important;
+}
+
+/* Card proyek saja yang menjadi gelap */
+body.gelap .kartu {
+    background: #302536 !important;
+    color: #f8e8f1 !important;
+    border-color: rgba(255, 182, 210, 0.3) !important;
+}
+
+/* Isi card */
+body.gelap .kartu h3 {
+    color: #ff75b7 !important;
+}
+
+body.gelap .kartu p {
+    color: #f8e8f1 !important;
+}
+
+body.gelap .nomor-proyek {
+    color: #ff75b7 !important;
+}
+
+body.gelap .lihat-proyek {
+    color: #ff9ac9 !important;
+}
+
+/* Kolom pencarian tetap gelap */
+body.gelap #cari {
+    background: #302536 !important;
+    color: #ffffff !important;
+    border-color: #ff75b7 !important;
+}
+
+body.gelap #cari::placeholder {
+    color: #d9c5d5 !important;
+}
+
+/* Tombol mode */
+body.gelap #tombol-tema {
+    background: #302536 !important;
+    color: #ff75b7 !important;
+    border-color: #ff75b7 !important;
+}
+
+/* ===== EFEK BACKGROUND MODE GELAP ===== */
+
+body {
+    position: relative;
+    isolation: isolate;
+}
+
+/* Lapisan gelap di atas background */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(25, 15, 30, 0);
+    pointer-events: none;
+    z-index: 0;
+    transition: background 0.4s ease;
+}
+
+/* Saat mode gelap aktif */
+body.gelap::before {
+    background: rgba(25, 15, 30, 0.65);
+}
+
+/* Pastikan seluruh isi website berada di atas lapisan */
+body > * {
+    position: relative;
+    z-index: 1;
+}
+/* ===== Perbaikan warna tulisan saat mode gelap ===== */
+
+/* Tulisan pembuka */
+body.gelap .teks-pembuka {
+    color: #fff0f6;
+}
+
+/* Nama tetap pink agar menjadi fokus utama */
+body.gelap .nama {
+    color: #ff69ad;
+    text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Tulisan deskripsi */
+body.gelap .deskripsi {
+    color: #ffffff;
+}
+
+/* Label kreativitas */
+body.gelap .label-kreativitas {
+    background-color: #ffffff;
+    color: #d63384;
+}
+
+/* Judul bagian proyek */
+body.gelap .judul-proyek h2 {
+    color: #ff80b5;
+}
+
+/* Subjudul dan deskripsi proyek */
+body.gelap .judul-proyek p {
+    color: #ffffff;
+}
+/* PERBAIKAN WARNA TEKS MODE GELAP */
+
+body.gelap .perkenalan .teks-pembuka {
+    color: #ffffff !important;
+}
+
+body.gelap .perkenalan .deskripsi {
+    color: #ffffff !important;
+}
+
+/* Tulisan nama tetap pink */
+body.gelap .perkenalan .nama {
+    color: #ff2990 !important;
+}
+
+/* Label kreativitas tetap pink */
+body.gelap .perkenalan .label-kreativitas {
+    color: #e91e78 !important;
+    background-color: #ffffff !important;
+}
+/* ===== Perbaikan tulisan bagian My Projects ===== */
+
+body.gelap .judul-proyek .subjudul {
+    color: #ffffff !important;
+}
+
+body.gelap .judul-proyek p {
+    color: #ffffff !important;
+}
+
+body.gelap .judul-proyek h2 {
+    color: #ff69ad !important;
+}
+/* Memastikan deskripsi My Projects terlihat saat mode gelap */
+body.gelap .bagian-proyek .judul-proyek > p:not(.subjudul) {
+    color: #ffffff !important;
+}
+
+/* Tulisan A LITTLE COLLECTION OF */
+body.gelap .bagian-proyek .judul-proyek .subjudul {
+    color: #ffffff !important;
+}
+
+/* Judul My Projects */
+body.gelap .bagian-proyek .judul-proyek h2 {
+    color: #ff69ad !important;
 }

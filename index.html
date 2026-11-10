@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Portofolio Syarifah Putri</title>
 
     <!-- Menghubungkan file CSS -->
@@ -10,94 +12,158 @@
 </head>
 <body>
 
-    <!-- ===== Bagian atas ===== -->
+    <!-- ===== Bagian Header ===== -->
     <header class="header">
         <h2 class="logo">Syarifah Putri</h2>
-        <button id="tombol-tema">Mode gelap</button>
+
+        <button id="tombol-tema" type="button">
+            Mode gelap
+        </button>
     </header>
 
     <main class="isi">
 
-        <!-- ===== Perkenalan ===== -->
-        <section class="perkenalan">
+        <!-- ===== Bagian Perkenalan ===== -->
+        <section class="perkenalan" id="beranda">
 
-            <h1>Halo, saya Syarifah Putri.</h1>
-            <p>Mahasiswa Sistem Informasi yang suka membuat aplikasi web.</p>
+            <p class="teks-pembuka">
+                A LITTLE INTRODUCTION OF
+            </p>
+
+            <h1>
+                <span class="the">the</span>
+                <span class="nama">Syarifah</span>
+                <span class="nama nama-kedua">Putri</span>
+            </h1>
+
+            <p class="label-kreativitas">
+                THE GIRL WHO LOVES CREATIVITY
+            </p>
+
+            <p class="deskripsi">
+                Mahasiswa Sistem Informasi yang suka membuat aplikasi web
+                dan mengeksplorasi hal-hal kreatif.
+            </p>
+
+            <a href="#proyek" class="tombol-proyek">
+                ✿ Lihat Proyek Saya
+            </a>
+
         </section>
 
-        <!-- ===== Daftar proyek ===== -->
-        <h2>Proyek saya</h2>
+        <!-- ===== Bagian Daftar Proyek ===== -->
+        <section class="bagian-proyek" id="proyek">
 
-        <!-- Kotak pencarian (dipakai oleh script.js) -->
-        <input type="text" id="cari" placeholder="Cari proyek...">
+            <div class="judul-proyek">
+                <p class="subjudul">A LITTLE COLLECTION OF</p>
+                <h2>My Projects</h2>
+                <p>
+                    Beberapa proyek dan karya yang pernah saya buat.
+                </p>
+            </div>
 
-        <section class="daftar-proyek">
+            <!-- Kolom pencarian -->
+            <input
+                type="text"
+                id="cari"
+                placeholder="Cari proyek..."
+                aria-label="Cari proyek"
+            >
 
-            <!-- Satu kartu = satu proyek.
-                 href mengarah ke index.html di dalam folder proyek tersebut. -->
-            <a
-                class="kartu"
-                href="web es cream/index.html">
-                <h3>Web Es Krim</h3>
-                <p>Website es krim yang menampilkan berbagai pilihan produk dan informasi menarik seputar es krim.</p>
-            </a>
+            <!-- Daftar kartu proyek -->
+            <section class="daftar-proyek">
 
-            <a
-                class="kartu"
-                href="mav-platform/index.html">
-                <h3>MAV Platform</h3>
-                <p>Menu berbeda untuk setiap peran pengguna.</p>
-            </a>
+                <a class="kartu" href="web es cream/index.html">
+                    <span class="nomor-proyek">01</span>
+                    <h3>Web Es Krim</h3>
+                    <p>
+                        Website es krim yang menampilkan berbagai pilihan
+                        produk dan informasi menarik seputar es krim.
+                    </p>
+                    <span class="lihat-proyek">Lihat proyek ↗</span>
+                </a>
 
-            <a
-                class="kartu"
-                href="buku-tamu-digital/index.html">
-                <h3>Buku Tamu Digital</h3>
-                <p>Formulir pencatatan tamu kantor.</p>
-            </a>
+                <a class="kartu" href="mav-platform/index.html">
+                    <span class="nomor-proyek">02</span>
+                    <h3>MAV Platform</h3>
+                    <p>
+                        Platform dengan menu berbeda untuk setiap
+                        peran pengguna.
+                    </p>
+                    <span class="lihat-proyek">Lihat proyek ↗</span>
+                </a>
 
-            <a
-                class="kartu"
-                href="web kopi/index.html">
-                <h3>Web Kopi</h3>
-                <p>Website kedai kopi yang menampilkan menu, informasi produk, dan suasana kedai.</p>
-            </a>
+                <a class="kartu" href="buku-tamu-digital/index.html">
+                    <span class="nomor-proyek">03</span>
+                    <h3>Buku Tamu Digital</h3>
+                    <p>
+                        Formulir digital untuk pencatatan tamu kantor.
+                    </p>
+                    <span class="lihat-proyek">Lihat proyek ↗</span>
+                </a>
 
-            <a
-                class="kartu"
-                href="coffe shop/index.html">
-                <h3>Web Coffe Shop</h3>
-                <p> Website coffee shop dengan tampilan menu dan informasi untuk pelanggan.</p>
-            </a>
+                <a class="kartu" href="web kopi/index.html">
+                    <span class="nomor-proyek">04</span>
+                    <h3>Web Kopi</h3>
+                    <p>
+                        Website kedai kopi yang menampilkan menu,
+                        informasi produk, dan suasana kedai.
+                    </p>
+                    <span class="lihat-proyek">Lihat proyek ↗</span>
+                </a>
 
-            <a
-                class="kartu"
-                href="portal-berita/portal_berita.html">
-                <h3>Portal Berita</h3>
-                <p>Portal berita yang menyajikan informasi terkini
-            seputar Kalimantan, khususnya Kalimantan Barat.</p>
-            </a>
+                <a class="kartu" href="coffe shop/index.html">
+                    <span class="nomor-proyek">05</span>
+                    <h3>Web Coffee Shop</h3>
+                    <p>
+                        Website coffee shop dengan tampilan menu
+                        dan informasi untuk pelanggan.
+                    </p>
+                    <span class="lihat-proyek">Lihat proyek ↗</span>
+                </a>
 
-             <a
-                class="kartu"
-                href="portofolio/index.html">
-                <h3>Web Portofolio</h3>
-                <p>Portofolio Syarifah Putri</p>
-            </a>
+                <a class="kartu" href="portal-berita/portal_berita.html">
+                    <span class="nomor-proyek">06</span>
+                    <h3>Portal Berita</h3>
+                    <p>
+                        Portal berita yang menyajikan informasi terkini
+                        seputar Kalimantan, khususnya Kalimantan Barat.
+                    </p>
+                    <span class="lihat-proyek">Lihat proyek ↗</span>
+                </a>
 
-            <a
-                class="kartu"
-                href="about/index.html">
-                <h3>Web Latihan HTML & CSS</h3>
-                <p>About Syarifah Putri</p>
-            </a>
+                <a class="kartu" href="portofolio/index.html">
+                    <span class="nomor-proyek">07</span>
+                    <h3>Web Portofolio</h3>
+                    <p>
+                        Website portofolio pribadi Syarifah Putri.
+                    </p>
+                    <span class="lihat-proyek">Lihat proyek ↗</span>
+                </a>
 
-            <!-- Mau menambah proyek? Salin satu blok <a class="kartu"> di atas, lalu ubah href, judul, dan deskripsinya. -->
+                <a class="kartu" href="about/index.html">
+                    <span class="nomor-proyek">08</span>
+                    <h3>Web Latihan HTML & CSS</h3>
+                    <p>
+                        Website sederhana yang berisi informasi
+                        tentang Syarifah Putri.
+                    </p>
+                    <span class="lihat-proyek">Lihat proyek ↗</span>
+                </a>
+
+            </section>
+
+            <!-- Pesan ketika proyek tidak ditemukan -->
+            <p id="pesan-kosong" class="pesan-kosong">
+                Proyek tidak ditemukan.
+            </p>
+
         </section>
 
-        <p id="pesan-kosong" class="pesan-kosong">Proyek tidak ditemukan.</p>
     </main>
-    <!-- Menghubungkan file JavaScript(letakkan paling bawah) -->
+
+    <!-- Menghubungkan file JavaScript -->
     <script src="script.js"></script>
+
 </body>
 </html>
