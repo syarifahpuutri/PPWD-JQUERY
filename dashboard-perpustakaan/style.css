@@ -1,0 +1,162 @@
+
+/* =========================================
+   DASHBOARD PERPUSTAKAAN
+   CUSTOM CSS - PPWD MINGGU 13
+========================================= */
+
+
+/* DASAR HALAMAN */
+body {
+    background-color: #f4f6f9;
+    font-family: Arial, sans-serif;
+}
+
+
+/* NAVBAR */
+.navbar {
+    min-height: 56px;
+}
+
+.navbar-brand {
+    letter-spacing: 0.3px;
+}
+
+/* Dropdown Admin */
+#adminDropdown {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+}
+
+#adminDropdown:hover,
+#adminDropdown:focus {
+    color: #ffffff;
+}
+
+
+/* SIDEBAR */
+.sidebar {
+    min-height: calc(100vh - 56px);
+}
+
+.sidebar .list-group-item {
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    padding: 12px 15px;
+    color: #495057;
+    font-weight: 500;
+}
+
+.sidebar .list-group-item.active {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.sidebar .list-group-item:hover:not(.active) {
+    background-color: #e9ecef;
+}
+
+
+/* KONTEN UTAMA */
+.main-content {
+    min-width: 0;
+}
+
+
+/* CARD STATISTIK */
+.stat-card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+
+/* CARD UMUM */
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.card-header {
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+/* TABEL */
+.table {
+    vertical-align: middle;
+}
+
+.table th,
+.table td {
+    white-space: nowrap;
+}
+
+
+/* TOMBOL */
+.btn {
+    border-radius: 7px;
+}
+
+
+/* PROGRESS BAR */
+.progress {
+    height: 12px;
+    border-radius: 10px;
+}
+
+.progress-bar {
+    border-radius: 10px;
+}
+
+
+/* MODAL */
+.modal-content {
+    border: none;
+    border-radius: 12px;
+}
+
+.modal-header,
+.modal-footer {
+    border-color: #eeeeee;
+}
+
+
+/* ALERT */
+.alert {
+    border-radius: 8px;
+}
+
+
+/* RESPONSIVE TABLET DAN HP */
+@media (max-width: 767.98px) {
+
+    .sidebar {
+        min-height: auto;
+        border-right: none !important;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .main-content {
+        padding: 20px !important;
+    }
+
+    .stat-card .card-body {
+        padding: 15px;
+    }
+
+    .stat-card h2 {
+        font-size: 24px;
+    }
+
+    .navbar-nav {
+        padding-top: 10px;
+    }
+
+}
